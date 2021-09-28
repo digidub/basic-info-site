@@ -5,7 +5,10 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
   console.log(req.url);
-  let filePath = '.' + req.url;
+  let filePath;
+  if (req.url === '/') {
+    filePath = 'index.html';
+  } else filePath = '.' + req.url + '.html';
   console.log(filePath);
 });
 
